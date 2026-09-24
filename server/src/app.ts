@@ -5,7 +5,9 @@ import helmet from "helmet";
 import { env } from "./config/env.js";
 import { errorHandler, notFoundHandler } from "./middleware/error-handler.js";
 import { authRoutes } from "./modules/auth/routes.js";
+import { brandRoutes } from "./modules/brands/routes.js";
 import { userRoutes } from "./modules/users/routes.js";
+import { vehicleRoutes } from "./modules/vehicles/routes.js";
 
 export const createApp = (): express.Express => {
   const app = express();
@@ -42,6 +44,8 @@ export const createApp = (): express.Express => {
 
   app.use("/api/v1/auth", authRoutes);
   app.use("/api/v1/users", userRoutes);
+  app.use("/api/v1/brands", brandRoutes);
+  app.use("/api/v1/vehicles", vehicleRoutes);
 
   app.use(notFoundHandler);
   app.use(errorHandler);

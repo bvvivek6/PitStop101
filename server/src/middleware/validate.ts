@@ -12,3 +12,14 @@ export const validateBody =
     req.body = result.data;
     next();
   };
+
+export const validateQuery =
+  (schema: z.ZodType): RequestHandler =>
+  (req, _res, next) => {
+    const result = schema.safeParse(req.query);
+    if (!result.success) {
+      next(result.error);
+      return;
+    }
+    next();
+  };
