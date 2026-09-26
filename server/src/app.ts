@@ -8,6 +8,7 @@ import { authRoutes } from "./modules/auth/routes.js";
 import { brandRoutes } from "./modules/brands/routes.js";
 import { categoryRoutes } from "./modules/categories/routes.js";
 import { contentRoutes } from "./modules/content/routes.js";
+import { mediaRoutes } from "./modules/media/routes.js";
 import { tagRoutes } from "./modules/tags/routes.js";
 import { userRoutes } from "./modules/users/routes.js";
 import { vehicleRoutes } from "./modules/vehicles/routes.js";
@@ -52,6 +53,7 @@ export const createApp = (): express.Express => {
   app.use("/api/v1/categories", categoryRoutes);
   app.use("/api/v1/tags", tagRoutes);
   app.use("/api/v1/content", contentRoutes);
+  app.use("/api/v1/media", mediaRoutes);
 
   app.use(notFoundHandler);
   app.use(errorHandler);
